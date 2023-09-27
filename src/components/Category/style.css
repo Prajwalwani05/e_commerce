@@ -4,7 +4,7 @@
     padding: 4rem;
 }
 .category h1{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
     color: var(--navy);
     text-align: center;
@@ -19,19 +19,22 @@
   margin: 3rem 0;
 }
 .content {
+    border: 2px solid var(--lightgray);
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 80%;
-    max-width: 400px;
+    max-width: 30rem;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--white);
   }
   
   .content .content-overlay {
     background: rgba(0,0,0,0.7);
     position: absolute;
-    height: 99%;
+    height: 100%;
     width: 100%;
     left: 0;
     top: 0;
@@ -91,6 +94,9 @@
   }
 
   .categoryImg{
-    height: 45rem;
-    width: 40rem;
+    height: 30rem;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

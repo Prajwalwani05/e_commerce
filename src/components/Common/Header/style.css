@@ -19,6 +19,9 @@
     /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1640' height='2000' preserveAspectRatio='none' viewBox='0 0 1640 2000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1176%26quot%3b)' fill='none'%3e%3crect width='1640' height='2000' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1177%26quot%3b)'%3e%3c/rect%3e%3cpath d='M1640 0L1505.32 0L1640 243.94z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1505.32 0L1640 243.94L1640 486.56L1045.12 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M1045.12 0L1640 486.56L1640 603.3L409.0999999999999 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M409.0999999999999 0L1640 603.3L1640 1355.71L184.5799999999999 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 2000L727.15 2000L0 1851.3600000000001z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 1851.3600000000001L727.15 2000L1143.72 2000L0 987.8100000000002z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 987.8100000000001L1143.72 2000L1152.03 2000L0 869.7900000000001z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 869.79L1152.03 2000L1346.87 2000L0 843.17z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1176'%3e%3crect width='1640' height='2000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='-5.49%25' y1='4.5%25' x2='105.49%25' y2='95.5%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1177'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(141%2c 185%2c 241%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"); */
 
 }
+.iconDivLink:focus {
+   border-bottom: 2px solid;
+}
 .headerImg{
     filter: contrast(5);
 }
@@ -89,6 +92,13 @@
 .botNav{
     display: none;
 }
+ .searchInputDiv input{
+    width: 24rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem;
+ }
 
 @media screen and (max-width: 800px){
     .mobileDrawer{
@@ -109,6 +119,8 @@
     display: block;
   }
 }
+
+
 @media screen and (max-width: 400px){
   .headerLinks{
     display: none;

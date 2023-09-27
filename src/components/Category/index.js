@@ -24,7 +24,7 @@ const Category = ({ setCat }) => {
   };
   return (
     <div className="category">
-      <h1>Categories</h1>
+      <h1>CATEGORIES</h1>
 
       <div className="allCategories">
         {uniqueCategoryProducts.map((item , id) => {

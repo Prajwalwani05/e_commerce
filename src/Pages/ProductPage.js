@@ -3,10 +3,17 @@ import Product from "../components/Product";
 import Header from "../components/Common/Header";
 import { items } from "../Data";
 import { useContext } from "react";
+import { BsCartPlus } from "react-icons/bs";
 import { ProductContext } from "../context/ProductContext";
 const ProductPage = () => {
-  const { product } = useContext(ProductContext);
+  const { product , setAddToCart , addToCart } = useContext(ProductContext);
   const relatedProducts = items.filter((item)=>item.category === product.category && item.id !== product.id);
+
+  const handleCart = (item) =>{
+    if(!addToCart.some((cartProd)=> cartProd.id === item.id)){
+      setAddToCart([...addToCart , item]);
+    }
+  }
   return (
     <div>
       <Header />
@@ -30,6 +37,7 @@ const ProductPage = () => {
                 <div className="productPrices">
                   <div className="rupeeDiv">
                     <div className="productPrice">$ {ele.price}</div>
+                    <div className='productCartIcon' onClick={(event)=>handleCart(ele)}><BsCartPlus style={{fontSize:"2.2rem"}}/></div>
                   </div>
                 </div>
               </div>

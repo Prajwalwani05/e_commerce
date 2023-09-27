@@ -6,8 +6,9 @@ import "./style.css";
 import { AiFillDelete } from "react-icons/ai";
 import FilledAlerts from "../Common/Toaster/index";
 import Button from "../Common/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 import Checkout from "./Checkout";
+import {useAuth0} from "@auth0/auth0-react"
 
 const Cart = () => {
   const [success, setSuccess] = useState(false);
@@ -16,6 +17,27 @@ const Cart = () => {
   const [cartItem, setCartItem] = useState(
     Array.isArray(addToCart) ? addToCart : []
   );
+
+  const { isAuthenticated ,user, isLoading , loginWithRedirect } = useAuth0();
+  
+  const getCartFromLocalStorage = () => {
+    const userId = user?.sub; // Use the user's unique identifier as the key
+    const cartData = localStorage.getItem(`cart_${userId}`);
+    return cartData ? JSON.parse(cartData) : [];
+  };
+  useEffect(() => {
+    if (isAuthenticated) {
+      // If the user is authenticated, load their cart from localStorage
+      const userCart = getCartFromLocalStorage();
+      setAddToCart(userCart);
+    }
+  }, [isAuthenticated]);
+  
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+  
 
   const handleRemoveCart = (e, item) => {
     e.stopPropagation();
@@ -27,6 +49,8 @@ const Cart = () => {
     setTimeout(() => {
       setSuccess(false);
     }, 1200);
+    const userId = user?.sub;
+    localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedItem));
   };
 
   const increaseQuantity = (item) => {
@@ -37,6 +61,8 @@ const Cart = () => {
     );
     setCartItem(updatedCart);
     setAddToCart(updatedCart);
+    const userId = user?.sub;
+    localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
   };
 
   const decreaseQuantity = (item) => {
@@ -48,6 +74,8 @@ const Cart = () => {
       );
       setCartItem(updatedCart);
       setAddToCart(updatedCart);
+      const userId = user?.sub;
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
     }
   };
   const total = cartItem.reduce(
@@ -56,11 +84,16 @@ const Cart = () => {
   );
   
   const checkOut = () =>{
-   
-   setPlaced(true);
+    if(!isLoading && !isAuthenticated){
+      alert("Redirecting to Login Page")
+      loginWithRedirect();
+    }
+    setPlaced(true);
     console.log("Checkout clicked"); 
     setAddToCart([]);
     setCartItem([]);
+    const userId = user?.sub;
+    localStorage.removeItem(`cart_${userId}`);
   }
 
   let shippingCharge=0;
@@ -78,7 +111,7 @@ const Cart = () => {
   const finalTotal = shippingCharge + total;
   return (
     <div className="Cart">
-      <Header />
+      {/* <Header /> */}
       {placed ? <Checkout /> : (<>
       {cartItem.length === 0 ? (
         <div className="empty">

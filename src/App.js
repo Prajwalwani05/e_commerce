@@ -10,6 +10,7 @@ import ShopPage from './Pages/ShopPage';
 import AboutPage from './Pages/AboutPage';
 import ContactPage from './Pages/ContactPage';
 import ProductPage from './Pages/ProductPage';
+import Footer from './components/Common/Footer';
 
 
 function App() {
@@ -18,14 +19,13 @@ function App() {
 
   return (
     <div className="App">
-    
      <Routes>
 
       <Route exact path='/' element={<HomePage setCat={setCat} />} />
      
      
       <Route path='/cart' element={<CartPage />} />
-     
+      {/* <ProtectedRoute path='/cart' element={<CartPage />} /> */}
      
       <Route path='/login' element={<LoginPage />} />
      
@@ -51,6 +51,7 @@ function App() {
       <Route path='/contact' element={<ContactPage />} />
       
      </Routes>
+     <Footer />
     </div>
   );
 }
