@@ -11,6 +11,7 @@ import AboutPage from './Pages/AboutPage';
 import ContactPage from './Pages/ContactPage';
 import ProductPage from './Pages/ProductPage';
 import Footer from './components/Common/Footer';
+import Error from './Pages/Error';
 
 
 function App() {
@@ -49,7 +50,8 @@ function App() {
      
      
       <Route path='/contact' element={<ContactPage />} />
-      
+
+      <Route path="*" element={<Error />} />
      </Routes>
      <Footer />
     </div>
