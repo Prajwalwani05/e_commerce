@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import FilledAlerts from "../Common/Toaster/index";
 import Header from "../Common/Header";
-const Shop = ({ setCat, cat, searching }) => {
+const Shop = ({ setCat, cat }) => {
   const navigate = useNavigate();
   const { setProduct, setAddToCart, addToCart } = useContext(ProductContext);
   const [success, setSuccess] = useState(false);
@@ -46,12 +46,12 @@ const Shop = ({ setCat, cat, searching }) => {
     setAllProds(true);
     setFiltered(false);
   };
-  const setCategory = (selectedCategory) => {
-    setCat([selectedCategory]);
-    setAllProds(false);
-    setFiltered(null);
-    setSearch(""); // Clear search when selecting a category
-  };
+  // const setCategory = (selectedCategory) => {
+  //   setCat([selectedCategory]);
+  //   setAllProds(false);
+  //   setFiltered(null);
+  //   setSearch(""); // Clear search when selecting a category
+  // };
 
   const filter = (num) => {
     setFiltered(
@@ -71,21 +71,21 @@ const Shop = ({ setCat, cat, searching }) => {
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-    console.log(search);
+    console.log(e.target.value);
   };
   const searchedItems = items.filter((item) =>
     item.description.toLowerCase().includes(search.trim().toLowerCase())
   );
 
   const itemsToRender = (()=>{
-    if(allProds){
+     if (search){
+      return searchedItems;
+    }
+    else if(allProds){
       return items;
     }
     else if(filtered){
       return filtered;
-    }
-    else if (search){
-      return searchedItems;
     }
     else if(cat.length > 0){
       return cat;
