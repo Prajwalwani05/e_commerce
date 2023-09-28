@@ -8,18 +8,14 @@ import { BsCart } from "react-icons/bs";
 import logoImage from "../../../images/logoImage.png";
 import { ProductContext } from "../../../context/ProductContext";
 import TemporaryDrawer from "./menuMobile";
-import FixedBottomNavigation from "./bottomNav";
 import { useLocation } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = ({ handleChange, search }) => {
   const { addToCart } = useContext(ProductContext);
   const [scrolled, setScrolled] = useState(false);
   const [searchClicked, setSearchClicked] = useState(false);
+  const [isLogoVisible , setIsLogoVisible] = useState(true)
   const location = useLocation();
-
-  const { loginWithRedirect } = useAuth0();
-  const { logout } = useAuth0();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -40,13 +36,17 @@ const Header = ({ handleChange, search }) => {
     backgroundColor: scrolled ? "white" : "transparent",
   };
   const showSearchicon = location.pathname === "/shop";
+
   const handleSearch = () => {
+    if (window.innerWidth <= 600) {
+      setIsLogoVisible(!isLogoVisible);
+    }
     setSearchClicked(!searchClicked);
   };
 
   return (
     <div className="Header" style={headerStyle}>
-      <div className="headerLogo">
+      {isLogoVisible && <div className="headerLogo">
         <NavLink to={"/"}>
           <img
             src={logoImage}
@@ -55,7 +55,7 @@ const Header = ({ handleChange, search }) => {
             alt="logoImage"
           />
         </NavLink>
-      </div>
+      </div>}
       <div className="headerLinks">
         <NavLink activeClassName="active-link" className="navLink" to={"/"}>
           Home
@@ -109,9 +109,6 @@ const Header = ({ handleChange, search }) => {
       </div>
       <div className="mobileDrawer">
         <TemporaryDrawer />
-      </div>
-      <div className="botNav">
-        <FixedBottomNavigation />
       </div>
     </div>
   );

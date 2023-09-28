@@ -14,7 +14,7 @@ const Shop = ({ setCat, cat, searching }) => {
   const [filtered, setFiltered] = useState(false);
   const [search, setSearch] = useState("");
   const [allProds, setAllProds] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const singleProduct = (item, id) => {
     if (id) {
       setProduct(item);
@@ -46,6 +46,13 @@ const Shop = ({ setCat, cat, searching }) => {
     setAllProds(true);
     setFiltered(false);
   };
+  const setCategory = (selectedCategory) => {
+    setCat([selectedCategory]);
+    setAllProds(false);
+    setFiltered(null);
+    setSearch(""); // Clear search when selecting a category
+  };
+
   const filter = (num) => {
     setFiltered(
       items.filter((item) => {
@@ -70,6 +77,24 @@ const Shop = ({ setCat, cat, searching }) => {
     item.description.toLowerCase().includes(search.trim().toLowerCase())
   );
 
+  const itemsToRender = (()=>{
+    if(allProds){
+      return items;
+    }
+    else if(filtered){
+      return filtered;
+    }
+    else if (search){
+      return searchedItems;
+    }
+    else if(cat.length > 0){
+      return cat;
+    }
+    else {
+      return items;
+    }
+  })();
+    
   return (
     <div className="shop">
       <Header search={search} handleChange={handleChange} />
@@ -80,7 +105,7 @@ const Shop = ({ setCat, cat, searching }) => {
       ) : (
         <>
           <div className="filters">
-            Filters :<p onClick={() => filter(1)}>$ 0 - $ 200</p>
+            Filters <p onClick={() => filter(1)}>$ 0 - $ 200</p>
             <p onClick={() => filter(2)}>$ 200 - $ 500</p>
             <p onClick={() => filter(3)}>$ 500 - $ 1000</p>
           </div>
@@ -89,22 +114,8 @@ const Shop = ({ setCat, cat, searching }) => {
           </div>
           {success && <FilledAlerts text={"Added to cart"} color={"success"} />}
           <div className="allProducts">
-            {((
-              !cat || cat.length === 0
-                ? allProds
-                  ? items
-                  : filtered
-                  ? filtered
-                  : items
-                : filtered
-                ? filtered
-                : cat
-            )
-              ? search
-                ? searchedItems
-                : items
-              : items
-            ).map((item, id) => {
+            {
+           itemsToRender.map((item, id) => {
               return (
                 <>
                   <div

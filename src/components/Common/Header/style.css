@@ -1,5 +1,6 @@
 
 .Header{
+    position: relative;
     padding: 1.3rem 4rem;
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,7 @@
     box-shadow: 0px 15px 10px -15px #111;    
     width: 100% !important;
     transition: background-color 0.1s linear;
+    height:9rem;
     & a{
         color: var(--gray);
     }
@@ -40,6 +42,7 @@
 
 .headerIcons{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 3rem;
     font-size: 2.2rem;
@@ -89,15 +92,35 @@
         color: var(--white);
     }
 }
-.botNav{
-    display: none;
+ .searchInputDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+
+     & input{
+        width: 22em;
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-align: left;
+        padding: 1rem;
+        border-radius: 50px;
+        background-color: transparent;
+        border: 2px solid var(--gray);
+     }
+ }
+ @media screen  and (max-width:600px){
+    /* .headerLogo{
+       visibility: hidden;
+    } */
+    .searchInputDiv {
+        width: auto;
+        & input{
+        width: 20rem;
+        font-size: 1.4rem;
+        padding: .7rem;
+    }
 }
- .searchInputDiv input{
-    width: 24rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 1rem;
  }
 
 @media screen and (max-width: 800px){
@@ -112,18 +135,20 @@
         }
         /* padding-left: 20rem; */
     }
-  .headerIcons{
-    display: none;
-  }
-  .botNav{
-    display: block;
-  }
+    .headerIcons{
+        position: absolute;
+        right:9rem;
+    }
 }
 
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px){  
+    .headerLogo img{
+        width: 40% !important;
+        margin-right: 2rem;
+    }
   .headerLinks{
-    display: none;
+  visibility: hidden;
 }
 .mobileDrawer{
     display: block;
@@ -132,12 +157,23 @@
 .mobileDrawer .mobileLinks {
     color:black !important;
     font-size: 2rem;
+ }
+ .headerLogo{
+    visibility: hidden;
+ }
+ .searchInputDiv {
+     width: auto;
+     & input{
+     width: 15rem;
+     font-size: 1.4rem;
+     padding: .7rem;
+ }
 }
 } 
   @media screen and (min-width:400px) and (max-width: 500px){
   
       .headerLinks > *:not(.toggleDiv){
-        display: none;
+       display: none; 
     }
     .mobileDrawer{
         display: block;
@@ -146,6 +182,8 @@
         color: var(--white);
         font-size: 2.5rem;
     }
+    
+    
     .mobileDrawer .mobileLinks{
         background-color: var(--black);
         color:var(--black);

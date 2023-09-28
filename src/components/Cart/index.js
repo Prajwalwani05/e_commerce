@@ -18,27 +18,8 @@ const Cart = () => {
     Array.isArray(addToCart) ? addToCart : []
   );
 
-  const { isAuthenticated ,user, isLoading , loginWithRedirect } = useAuth0();
-  
-  const getCartFromLocalStorage = () => {
-    const userId = user?.sub; // Use the user's unique identifier as the key
-    const cartData = localStorage.getItem(`cart_${userId}`);
-    return cartData ? JSON.parse(cartData) : [];
-  };
-  useEffect(() => {
-    if (isAuthenticated) {
-      // If the user is authenticated, load their cart from localStorage
-      const userCart = getCartFromLocalStorage();
-      setAddToCart(userCart);
-    }
-  }, [isAuthenticated]);
-  
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-  
-
+  const {isAuthenticated , isLoading , loginWithRedirect} = useAuth0();
   const handleRemoveCart = (e, item) => {
     e.stopPropagation();
     setCartItem([...addToCart, cartItem]);
@@ -49,8 +30,6 @@ const Cart = () => {
     setTimeout(() => {
       setSuccess(false);
     }, 1200);
-    const userId = user?.sub;
-    localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedItem));
   };
 
   const increaseQuantity = (item) => {
@@ -61,8 +40,6 @@ const Cart = () => {
     );
     setCartItem(updatedCart);
     setAddToCart(updatedCart);
-    const userId = user?.sub;
-    localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
   };
 
   const decreaseQuantity = (item) => {
@@ -74,8 +51,6 @@ const Cart = () => {
       );
       setCartItem(updatedCart);
       setAddToCart(updatedCart);
-      const userId = user?.sub;
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
     }
   };
   const total = cartItem.reduce(
@@ -92,8 +67,7 @@ const Cart = () => {
     console.log("Checkout clicked"); 
     setAddToCart([]);
     setCartItem([]);
-    const userId = user?.sub;
-    localStorage.removeItem(`cart_${userId}`);
+
   }
 
   let shippingCharge=0;
@@ -168,7 +142,7 @@ const Cart = () => {
           <div className="total">
             <h1>order summary</h1>
            <div className="subTotal">
-           <p>{`Subtotal - ${cartItem.length > 1 ? `(Items - ${cartItem.length})` : `item - 1`}`}</p>
+           <p>{`Subtotal ${cartItem.length > 1 ? `(Items - ${cartItem.length})` : `item - 1`}`} -</p>
             <p>$ {total}</p>
            </div>
            <div className="shipping">
@@ -176,7 +150,7 @@ const Cart = () => {
             <p>{shipingCharge}</p>
            </div>
            <hr/>
-           <div style={{display:"flex" , justifyContent:"space-between"}} className="finalTotal">
+           <div className="finalTotal">
             <p>Total - </p>
             <p>$ {finalTotal}</p>
            </div>

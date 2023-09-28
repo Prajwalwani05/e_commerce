@@ -1,6 +1,6 @@
 .category{
     /* height: 90vh; */
-    margin-top: 10rem;
+    margin-top: 8rem;
     padding: 4rem;
 }
 .category h1{
@@ -100,3 +100,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  
+
+@media screen  and (max-width:500px){
+  .category{
+    margin-top: 2rem;
+    padding-bottom: 0;
+  }
+}
+@media screen  and  (min-width:500px) and (max-width:800px){
+ .category{
+  margin-top: 3rem;
+  padding-bottom: 0;
+ }
+}

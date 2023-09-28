@@ -34,3 +34,39 @@
         font-weight: 600;
     }
 }
+
+
+@media screen  and (max-width:500px){
+    .Banner{
+        display: flex;
+        flex-direction: column;
+        padding: 8rem;
+        padding-bottom: 0;
+        gap: 5rem;
+    }
+    .bannerImg{
+        width: 34rem;
+    }
+    .bannerText{
+        & p{
+            font-size: 2rem;
+        }
+    }
+}
+@media screen  and  (min-width:500px) and (max-width:800px){
+    .Banner{
+        display: flex;
+        flex-direction: column;
+        padding: 8rem;
+        padding-bottom: 0;
+        gap: 5rem;
+    }
+    .bannerImg{
+        width: 40rem;
+    }
+    .bannerText{
+        & p{
+            font-size: 2.4rem;
+        }
+    }
+}
