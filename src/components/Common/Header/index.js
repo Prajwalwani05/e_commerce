@@ -3,9 +3,8 @@ import "./style.css";
 import { NavLink } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
-// import { CiMenuFries } from "react-icons/ci";
 import { BsCart } from "react-icons/bs";
-import logoImage from "../../../images/logoImage.png";
+import logoImage from "../../../images/logo-white-removebg-preview.png";
 import { ProductContext } from "../../../context/ProductContext";
 import TemporaryDrawer from "./menuMobile";
 import { useLocation } from "react-router-dom";
@@ -51,7 +50,7 @@ const Header = ({ handleChange, search }) => {
           <img
             src={logoImage}
             className="headerImg"
-            style={{ width: "10rem" }}
+            style={{ width: "12rem" }}
             alt="logoImage"
           />
         </NavLink>

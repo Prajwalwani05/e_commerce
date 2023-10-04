@@ -3,7 +3,7 @@ import Shop from '../components/Shop'
 
 const ShopPage = ({cat , setCat}) => {
   return (
-    <div>
+    <div className='ShopPage'>
       <Shop cat={cat} setCat={setCat}/>
     </div>
   )

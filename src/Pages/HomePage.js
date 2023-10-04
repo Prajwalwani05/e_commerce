@@ -5,7 +5,7 @@ import Header from '../components/Common/Header';
 
 const HomePage = ({setCat}) => {
   return (
-    <div>
+    <div className="HomePage">
       <Header />
       <Home setCat={setCat} /> 
     </div>
