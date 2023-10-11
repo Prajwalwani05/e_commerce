@@ -1,5 +1,9 @@
 .TopProducts{
-    margin-top: 5rem;
+    padding-top: 5rem;
+    /* background: #BBD2C5;  
+background: -webkit-linear-gradient(to bottom, #292E49, #536976, #BBD2C5);
+background: linear-gradient(to bottom, #292E49, #536976, #BBD2C5); */
+
 }
 .TopProducts h1{
     font-size: 3rem;

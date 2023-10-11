@@ -6,6 +6,7 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import FilledAlerts from "../Common/Toaster/index";
+import { FiFilter } from "react-icons/fi";
 import Header from "../Common/Header";
 const Shop = ({ setCat, cat }) => {
   const navigate = useNavigate();
@@ -46,12 +47,7 @@ const Shop = ({ setCat, cat }) => {
     setAllProds(true);
     setFiltered(false);
   };
-  // const setCategory = (selectedCategory) => {
-  //   setCat([selectedCategory]);
-  //   setAllProds(false);
-  //   setFiltered(null);
-  //   setSearch(""); // Clear search when selecting a category
-  // };
+  
 
   const filter = (num) => {
     setFiltered(
@@ -97,20 +93,22 @@ const Shop = ({ setCat, cat }) => {
     
   return (
     <div className="shop">
-      <Header search={search} handleChange={handleChange} />
-      {searchedItems.length === 0 ? (
+      <Header search={search} isHeaderBg={true} handleChange={handleChange} />
+      {searchedItems.
+      length === 0 ? (
         <div className="result">
           <p>No results for "{search}"</p>
         </div>
       ) : (
         <>
-          <div className="filters">
-            Filters <p onClick={() => filter(1)}>$ 0 - $ 200</p>
-            <p onClick={() => filter(2)}>$ 200 - $ 500</p>
-            <p onClick={() => filter(3)}>$ 500 - $ 1000</p>
-          </div>
           <div className="allProductsBtn" onClick={allProd}>
             🛍️All Products
+          </div>
+          <div className="filters">
+            <div className="filterDiv"><FiFilter style={{fontSize:"2rem"}} />
+              <h1>Filters</h1></div> <p onClick={() => filter(1)}>$ 0 - $ 200</p>
+            <p onClick={() => filter(2)}>$ 200 - $ 500</p>
+            <p onClick={() => filter(3)}>$ 500 - $ 1000</p>
           </div>
           {success && <FilledAlerts text={"Added to cart"} color={"success"} />}
           <div className="allProducts">

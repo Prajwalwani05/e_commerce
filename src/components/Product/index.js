@@ -41,8 +41,7 @@ const Product = () => {
               <div className="otherImages">
                 <img
                   src={image}
-                  alt=""
-                  style={{ width: "20rem", height: "auto" }}
+                  alt="imgs"
                 />
               </div>
             );
@@ -62,9 +61,9 @@ const Product = () => {
           </div>
           <div className="productDesc">{product.specs}</div>
         </div>
-        <div className="addToCartDiv" onClick={(e) => handleCart(product, e)}>
+        <div className="addToCartDiv" onClick={(e) => handleCart(product, e)}>Add to bag
           {/* <h2 style={{fontSize:"1.4rem"}}>Add to cart</h2> */}
-          <BsCartPlus style={{ fontSize: "2.2rem" }} />
+          {/* <BsCartPlus style={{ fontSize: "2.2rem" }} /> */}
         </div>
       </div>
     </div>

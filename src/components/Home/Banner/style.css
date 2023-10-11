@@ -1,37 +1,34 @@
+
+.fullBanner{
+    height: 100vh;
+}
 .Banner{
     display: flex;
-    padding:2rem 15rem;
-    padding-left: 12rem;
-    padding-top: 15rem;
-    /* background-color: #d8572a; */
-    justify-content: space-between;
+    padding:2rem;
+    height: 80vh;
+    justify-content:center;
     align-items: center;
-    position: relative; 
-} 
-
-.bannerImg{
-    width: 70rem;
     position: relative;
-    z-index: 2;
-    & img{
-        mix-blend-mode: multiply;
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-        object-position: center;
-        border-radius: 50px 0 50px 0;
-    }
-    
- }
+} 
 
 .bannerText{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
+
+    & h1{
+        font-size:12rem;
+    }
 
     & p{
         font-size: 3rem;
         font-weight: 600;
+        margin-bottom: 2rem;
+    }
+    & a{
+        cursor:auto;
     }
 }
 
@@ -49,6 +46,7 @@
     }
     .bannerText{
         & p{
+            
             font-size: 2rem;
         }
     }

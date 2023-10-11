@@ -1,19 +1,21 @@
 import React from 'react'
-import Header from '../Common/Header'
 import Banner from './Banner'
 import "./style.css";
 import Category from '../Category';
 import TopProducts from './TopProducts';
-import Footer from '../Common/Footer';
+import Header from '../Common/Header';
 
 const Home = ({setCat}) => {
   return (
     <div className='Home'>
-        {/* <Header/> */}
-        <Banner />
+      <div className='headerBanner'>
+      <Header/>
+      <Banner />
+        </div>
+       <div className='catProdBrand'>
         <Category setCat={setCat}/>
         <TopProducts />
-        
+       </div>
     </div>
   )
 }

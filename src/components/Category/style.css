@@ -1,7 +1,9 @@
 .category{
     /* height: 90vh; */
-    margin-top: 8rem;
+    /* margin-top: 8rem; */
     padding: 4rem;
+   
+
 }
 .category h1{
     font-size: 3rem;
@@ -32,7 +34,7 @@
   }
   
   .content .content-overlay {
-    background: rgba(0,0,0,0.7);
+    background:rgba(14, 66, 19, 0.555);
     position: absolute;
     height: 100%;
     width: 100%;

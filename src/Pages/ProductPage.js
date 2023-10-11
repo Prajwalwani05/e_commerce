@@ -24,7 +24,7 @@ const ProductPage = () => {
   }
   return (
     <div>
-      <Header />
+      <Header isHeaderBg={true}/>
       <Product />
       {relatedProducts.length > 0 && <h1 className="relatedProducts" style={{fontWeight:"700"}}>Related Products</h1>}
       <div className="allProducts shuffled">

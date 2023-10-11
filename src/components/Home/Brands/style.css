@@ -1,0 +1,29 @@
+.brand{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+  .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .col-5 {
+    width: 20rem;
+  }
+  
+  .col-5 img {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+  }
+  
+  .col-5 img:hover {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(0);
+  }
+  

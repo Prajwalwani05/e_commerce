@@ -9,12 +9,14 @@ import { ProductContext } from "../../../context/ProductContext";
 import TemporaryDrawer from "./menuMobile";
 import { useLocation } from "react-router-dom";
 
-const Header = ({ handleChange, search }) => {
+const Header = ({ handleChange, search, isHeaderBg }) => {
   const { addToCart } = useContext(ProductContext);
   const [scrolled, setScrolled] = useState(false);
   const [searchClicked, setSearchClicked] = useState(false);
-  const [isLogoVisible , setIsLogoVisible] = useState(true)
+  const [isLogoVisible , setIsLogoVisible] = useState(true);
   const location = useLocation();
+
+  const Header = isHeaderBg ? 'Header bg' : 'Header';
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -44,7 +46,7 @@ const Header = ({ handleChange, search }) => {
   };
 
   return (
-    <div className="Header" style={headerStyle}>
+    <div className={Header} style={headerStyle}>
       {isLogoVisible && <div className="headerLogo">
         <NavLink to={"/"}>
           <img

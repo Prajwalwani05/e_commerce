@@ -13,7 +13,7 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <Header />
+      <Header isHeaderBg={true}/>
       {isAuthenticated ? (
         <div className="Profile">
           <img src={user.picture} alt={user.name} />

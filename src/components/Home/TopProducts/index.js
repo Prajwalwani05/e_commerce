@@ -4,6 +4,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
 import { ProductContext } from "../../../context/ProductContext";
 import { useNavigate } from "react-router-dom";
+import Brands from '../Brands';
 import FilledAlerts from "../../Common/Toaster";
 import "./style.css";
 
@@ -62,6 +63,7 @@ const handleCart = (event , item) => {
         );
       })}
     </div>
+    <Brands />
     </div>
   );
 };

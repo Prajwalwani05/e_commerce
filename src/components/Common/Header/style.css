@@ -19,6 +19,9 @@
         color: var(--white);
     }
 }
+.bg{
+    background-color: #111 !important;
+}
 .iconDivLink:focus {
    border-bottom: 2px solid;
 }
