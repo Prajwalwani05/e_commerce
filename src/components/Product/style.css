@@ -89,3 +89,66 @@
     flex-direction: column;
     gap: 2rem;
 }
+
+
+
+
+
+@media screen  and (max-width:500px){
+    .selectedProduct{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .selectedProductImgDiv .otherImages{
+        width: 10rem;
+        height: 10rem;
+    }
+    .mainImg{
+        width: 20rem;
+    }
+    .productInfo{
+        width: 40rem;
+        padding: 0 3rem;
+
+        .selectedProductName{
+            font-size: 1.8rem;
+        }
+       .productDesc{
+        font-size: 1.2rem;
+       }
+       .priceIcon{
+        font-size: 1.8rem;
+       }
+    }
+
+}
+
+  @media screen  and  (min-width:500px) and (max-width:800px){
+    .selectedProduct{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .selectedProductImgDiv .otherImages{
+        width: 15rem;
+        height: 15rem;
+    }
+    .mainImg{
+        width: 30rem;
+    }
+    .productInfo{
+        width: 60rem;
+        padding: 0 10rem;
+
+        .selectedProductName{
+            font-size: 1.8rem;
+        }
+       .productDesc{
+        font-size: 1.2rem;
+       }
+       .priceIcon{
+        font-size: 1.8rem;
+       }
+    }
+  }
