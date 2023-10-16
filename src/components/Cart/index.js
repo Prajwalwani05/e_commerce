@@ -147,7 +147,7 @@ const Cart = () => {
            </div>
            <div className="shipping">
            <p>Shipping - </p>
-            <p>{shipingCharge}</p>
+            <p>$ {shipingCharge}</p>
            </div>
            <hr/>
            <div className="finalTotal">

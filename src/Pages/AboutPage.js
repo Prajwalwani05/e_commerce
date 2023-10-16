@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Common/Header";
 
 const AboutPage = () => {
+  window.scrollTo(0,0)
   return (
     <div className="aboutPage">
       <Header isHeaderBg={true}/>

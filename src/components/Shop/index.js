@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { items } from "../../Data";
+import { itemsData } from "../../Data";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
 import "./style.css";
@@ -16,6 +16,21 @@ const Shop = ({ setCat, cat }) => {
   const [search, setSearch] = useState("");
   const [allProds, setAllProds] = useState(false);
   // const [error, setError] = useState(null);
+  const [items , setItems]  = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
+
+  useEffect(()=>{
+    const storedProds = JSON.parse(localStorage.getItem('items'));
+    if(storedProds){
+      setItems(storedProds);
+    }
+    else{
+      setItems(itemsData);
+    }
+    setLoading(false);
+  },[]);
+
   const singleProduct = (item, id) => {
     if (id) {
       setProduct(item);
@@ -51,7 +66,7 @@ const Shop = ({ setCat, cat }) => {
 
   const filter = (num) => {
     setFiltered(
-      items.filter((item) => {
+      itemsData.filter((item) => {
         if (num === 1) {
           return item.price < 200;
         } else if (num === 2) {
@@ -129,6 +144,7 @@ const Shop = ({ setCat, cat }) => {
                         alt={item.id}
                       />
                     </div>
+                    <div className="proddDetails">
                     <div className="productName">{item.description}</div>
                     <div className="productPrices">
                       <div className="rupeeDiv">
@@ -141,6 +157,7 @@ const Shop = ({ setCat, cat }) => {
                       >
                         <BsCartPlus style={{ fontSize: "2.2rem" }} />
                       </div>
+                    </div>
                     </div>
                   </div>
                 </>

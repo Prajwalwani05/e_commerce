@@ -12,7 +12,7 @@ export default function TemporaryDrawer() {
      
         <MenuRoundedIcon onClick={() => {
           setOpen(true);
-        }} className="menuIcon" style={{color:"black" , fontSize:"2rem"}}/>
+        }} className="menuIcon" style={{color:"white" , fontSize:"2rem"}}/>
      
       <Drawer
         anchor={"right"}
@@ -24,6 +24,7 @@ export default function TemporaryDrawer() {
         <div className="mobileLinks">
           <Link to="/" style={{color:"var(--navy)"}}>Home</Link>
           <Link to={"/shop"} style={{color:"var(--navy)"}}>Shop</Link>
+          <Link to={"/addProducts"} style={{color:"var(--navy)"}}>Add Product</Link>
           <Link to="/about"style={{color:"var(--navy)"}}>About</Link>
           <Link to="/contact" style={{color:"var(--navy)"}}>
             Contact

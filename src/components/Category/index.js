@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import "./style.css";
-import { items } from "../../Data";
+import { itemsData } from "../../Data";
 import { NavLink } from "react-router-dom";
 
 const Category = ({ setCat }) => {
@@ -9,7 +9,7 @@ const Category = ({ setCat }) => {
     window.scrollTo(0, 0);
   },[]);
   const categoryProducts = {};
-  items.forEach(item => {
+  itemsData.forEach(item => {
     if (!categoryProducts[item.category]) {
       categoryProducts[item.category] = item;
     }
@@ -19,7 +19,7 @@ const Category = ({ setCat }) => {
   console.log(uniqueCategoryProducts);
   let categories = [];
   const handleCategory = (category) => {
-    categories = items.filter((item) => item.category === category);
+    categories = itemsData.filter((item) => item.category === category);
     setCat(categories);
   };
   return (

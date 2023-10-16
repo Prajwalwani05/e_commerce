@@ -3,6 +3,8 @@ import Header from "../components/Common/Header";
 import "./contact.css";
 
 const ContactPage = () => {
+  window.scrollTo(0,0)
+
   return (
     <div>
       <Header isHeaderBg={true}/>

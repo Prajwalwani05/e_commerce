@@ -8,7 +8,7 @@
 .category h1{
     font-size: 3rem;
     font-weight: 600;
-    color: var(--navy);
+    color: #fff;
     text-align: center;
 }
 .allCategories{

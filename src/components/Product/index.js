@@ -1,4 +1,4 @@
-import React, { useContext , useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import "./style.css";
 import { BsCurrencyDollar } from "react-icons/bs";
@@ -9,9 +9,9 @@ const Product = () => {
   const { product, setAddToCart, addToCart } = useContext(ProductContext);
   const [success, setSuccess] = React.useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
   const handleCart = (item, e) => {
     if (!addToCart.some((cartProd) => cartProd.id === item.id)) {
       setAddToCart([...addToCart, item]);
@@ -25,48 +25,48 @@ const Product = () => {
   };
   return (
     <>
-    {success && <FilledAlerts text={"Added to Cart"} color={"success"} />}
-    <div className="selectedProduct">
-      <div className="selectedProductImgDiv">
-        <div className="mainImg">
-          <img
-            className="selecetedProductImg"
-            src={product.img}
-            alt={product.id}
-          />
-        </div>
-        <div className="otherImagesDiv">
-          {product.otherImages.map((image) => {
-            return (
-              <div className="otherImages">
-                <img
-                  src={image}
-                  alt="imgs"
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="productInfo">
-        <div className="selectedProductName">{product.description}</div>
-        <div className="selectedProductPrices">
-          <div className="selectedRupeeDiv">
-            <div className="priceIcon">
-              <BsCurrencyDollar />
-              <div className="selectedProductPrice">{product.price}</div>
-            </div>
-
-            {/* <div className='selectedProductCartIcon' ><BsCartPlus style={{fontSize:"2.2rem"}}/></div> */}
+      {success && <FilledAlerts text={"Added to Cart"} color={"success"} />}
+      <div className="selectedProduct">
+        <div className="selectedProductImgDiv">
+          <div className="mainImg">
+            <img
+              className="selecetedProductImg"
+              src={product.img}
+              alt={product.id}
+            />
           </div>
-          <div className="productDesc">{product.specs}</div>
+          <div className="otherImagesDiv">
+            {product.otherImages && product.otherImages.length > 0 ? (
+              product.otherImages.map((image, index) => (
+                <div className="otherImages" key={index}>
+                  <img src={image} alt="imgs" />
+                </div>
+              ))
+            ) : (
+              <p></p>
+            )}
+          </div>
         </div>
-        <div className="addToCartDiv" onClick={(e) => handleCart(product, e)}>Add to bag
-          {/* <h2 style={{fontSize:"1.4rem"}}>Add to cart</h2> */}
-          {/* <BsCartPlus style={{ fontSize: "2.2rem" }} /> */}
+        <div className="productInfo">
+          <div className="selectedProductName">{product.description}</div>
+          <div className="selectedProductPrices">
+            <div className="selectedRupeeDiv">
+              <div className="priceIcon">
+                <BsCurrencyDollar />
+                <div className="selectedProductPrice">{product.price}</div>
+              </div>
+
+              {/* <div className='selectedProductCartIcon' ><BsCartPlus style={{fontSize:"2.2rem"}}/></div> */}
+            </div>
+            <div className="productDesc">{product.specs}</div>
+          </div>
+          <div className="addToCartDiv" onClick={(e) => handleCart(product, e)}>
+            Add to bag
+            {/* <h2 style={{fontSize:"1.4rem"}}>Add to cart</h2> */}
+            {/* <BsCartPlus style={{ fontSize: "2.2rem" }} /> */}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

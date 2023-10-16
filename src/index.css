@@ -20,6 +20,11 @@ html{
   font-size: 1.6rem;
 }
 
+::selection{
+  background-color: rgb(139, 225, 139);
+  color: #26405E;
+}
+
 body {
   font-family: 'Andika', sans-serif !important; 
   -webkit-font-smoothing: antialiased;

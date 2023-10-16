@@ -5,10 +5,17 @@ background: -webkit-linear-gradient(to bottom, #292E49, #536976, #BBD2C5);
 background: linear-gradient(to bottom, #292E49, #536976, #BBD2C5); */
 
 }
+.tProduct{
+    background-color: white;
+    padding: 1rem;
+}
+.tProductContent{
+    padding: 1rem;
+}
 .TopProducts h1{
     font-size: 3rem;
     font-weight: 600;
-    color: var(--navy);
+    color: white;
     text-align: center;
 }
 .topAllProducts{

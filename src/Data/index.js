@@ -1,4 +1,4 @@
-export const items = [
+export const itemsData = [
     {
       id: 1,
       category: "chair",

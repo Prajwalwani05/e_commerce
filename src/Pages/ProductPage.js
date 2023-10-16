@@ -2,14 +2,16 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import Product from "../components/Product";
 import Header from "../components/Common/Header";
-import { items } from "../Data";
+import { itemsData } from "../Data";
 import { useContext } from "react";
 import { BsCartPlus } from "react-icons/bs";
 import { ProductContext } from "../context/ProductContext";
 const ProductPage = () => {
   const { setProduct ,product , setAddToCart , addToCart } = useContext(ProductContext);
-  const relatedProducts = items.filter((item)=>item.category === product.category && item.id !== product.id);
+  const relatedProducts = itemsData.filter((item)=>item.category === product.category && item.id !== product.id);
   const navigate = useNavigate();
+  window.scrollTo(0,0)
+
   const handleCart = (e,item) =>{
     e.stopPropagation();
     if(!addToCart.some((cartProd)=> cartProd.id === item.id)){

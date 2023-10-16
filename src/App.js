@@ -12,6 +12,7 @@ import ContactPage from './Pages/ContactPage';
 import ProductPage from './Pages/ProductPage';
 import Footer from './components/Common/Footer';
 import Error from './Pages/Error';
+import AddProducts from './Pages/AddProducts';
 
 
 function App() {
@@ -39,10 +40,12 @@ function App() {
 
       <Route path='/product/:id' element={<ProductPage />} />
 
+      <Route path='/addProducts' element={<AddProducts/>} />
+
 
       {/* <Route path='/product/:id' element={<ProductPage />} /> */}
      
-     
+      
       <Route path='/shop' element={<ShopPage cat={cat} setCat={setCat} />} />
      
      

@@ -64,6 +64,9 @@ const Header = ({ handleChange, search, isHeaderBg }) => {
         <NavLink activeClassName="active-link" className="navLink" to={"/shop"}>
           Shop
         </NavLink>
+        <NavLink activeClassName="active-link" className="navLink" to={"/addProducts"}>
+          Add product
+        </NavLink>
         <NavLink
           activeClassName="active-link"
           className="navLink"

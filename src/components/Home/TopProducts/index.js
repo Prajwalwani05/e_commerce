@@ -1,5 +1,5 @@
 import React,{useContext,useEffect , useState} from "react";
-import { items } from "../../../Data";
+import { itemsData } from "../../../Data";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { BsCartPlus } from "react-icons/bs";
 import { ProductContext } from "../../../context/ProductContext";
@@ -40,9 +40,9 @@ const handleCart = (event , item) => {
        <h1>OUR TOP PRODUCTS</h1>
     <div className="allProducts topAllProducts">
     {success && <FilledAlerts text={"Added to cart"} color = {"success"} />}
-      {items.slice(7, 11).map((item,id) => {
+      {itemsData.slice(7, 11).map((item,id) => {
         return (
-          <div className="product" onClick={()=>singleProduct(item,id)}>
+          <div className="product tProduct" onClick={()=>singleProduct(item,id)}>
             <div className="productImgDiv">
               <img
                 className="productImg"
@@ -51,6 +51,7 @@ const handleCart = (event , item) => {
                 alt={item.id}
               />
             </div>
+            <div className="tProductContent">
             <div className="productName">{item.description}</div>
             <div className="productPrices">
               <div className="rupeeDiv">
@@ -58,6 +59,7 @@ const handleCart = (event , item) => {
                 <div className="productPrice">{item.price}</div>
               </div>
               <div className='productCartIcon' onClick={(event)=>handleCart(event ,item)}><BsCartPlus style={{fontSize:"2.2rem"}}/></div>
+            </div>
             </div>
           </div>
         );
