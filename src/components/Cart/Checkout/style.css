@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     width: 30rem;
-    height: 50rem;
+    height: fit-content;
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -24,12 +24,13 @@
         width: 100%;
         padding: 2rem;
     }
-    & input{
+    & .checkoutInput{
         width:100%;
         padding: 1rem;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
+        border: 2px solid gray;
         font-weight: 500;
         font-size: 1.4rem;
     }

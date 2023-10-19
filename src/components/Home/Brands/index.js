@@ -12,7 +12,7 @@ const Brands = () => {
             </div>
 
             <div className="col-5">
-              <img src="https://i.ibb.co/vjrRZFM/logo-oppo.png" alt="" />
+              <img src="https://imgs.search.brave.com/rafftjVRs6KN9tS8CsfO2UiSl1zo9pTIdUGSXfOy3TM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDcwNjQ4/MzgucG5n" alt="" />
             </div>
 
             <div className="col-5">

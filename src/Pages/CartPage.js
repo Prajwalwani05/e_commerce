@@ -7,6 +7,7 @@ const CartPage = () => {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem('token'))
   if(!token){
+    alert("Please login!")
     navigate('/signup');
   }
   window.scrollTo(0,0)

@@ -33,7 +33,7 @@ form{
     color: rgb(4, 46, 1);
     border: 1px solid rgb(2, 48, 4);
 }
-input:not([type='file']){
+.addProductInput:not([type='file']){
     width: 50rem;
     text-align: left;
     font-weight: 500;

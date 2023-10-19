@@ -57,19 +57,19 @@ const AddProducts = () => {
         <form onSubmit={handleAddProduct}>
           <div className='inputDiv'>
           <label>Product name</label><br/>
-          <input type='text' value={productDesc} onChange={(e)=>setProductDesc(e.target.value)} required/>
+          <input className='addProductInput' type='text' value={productDesc} onChange={(e)=>setProductDesc(e.target.value)} required/>
           </div>
           <div className='inputDiv'>
           <label>Product description</label><br/>
-          <input type='text' value={productSpecs} onChange={(e)=>setProductSpecs(e.target.value)} required/>
+          <input className='addProductInput' type='text' value={productSpecs} onChange={(e)=>setProductSpecs(e.target.value)} required/>
           </div>
           <div className='inputDiv'>
           <label>Product price</label><br/>
-          <input type='number' value={productPrice} onChange={(e)=>setProductPrice(e.target.value)} required/>
+          <input className='addProductInput' type='number' value={productPrice} onChange={(e)=>setProductPrice(e.target.value)} required/>
           </div>
           <div >
           <label>Product image</label><br/>
-          <input type='file' name='img' onChange={handleImg} id='file'/>
+          <input className='addProductInput' type='file' name='img' onChange={handleImg} id='file'/>
           </div>
           {productImg && (
             <div>

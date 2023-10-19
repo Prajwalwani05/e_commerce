@@ -121,7 +121,8 @@ const Shop = ({ setCat, cat }) => {
           </div>
           <div className="filters">
             <div className="filterDiv"><FiFilter style={{fontSize:"2rem"}} />
-              <h1>Filters</h1></div> <p onClick={() => filter(1)}>$ 0 - $ 200</p>
+              <h1>Filters</h1></div>
+              <p onClick={() => filter(1)}>$ 0 - $ 200</p>
             <p onClick={() => filter(2)}>$ 200 - $ 500</p>
             <p onClick={() => filter(3)}>$ 500 - $ 1000</p>
           </div>

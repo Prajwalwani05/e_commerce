@@ -20,7 +20,7 @@
     }
 }
 .bg{
-    background-color: #111 !important;
+    background-color: rgb(5, 44, 5) !important;
 }
 .iconDivLink:focus {
    border-bottom: 2px solid;
@@ -107,6 +107,7 @@
         text-align: left;
         padding: 1rem;
         border-radius: 50px;
+        color: white;
         background-color: transparent;
         border: 2px solid var(--gray);
      }

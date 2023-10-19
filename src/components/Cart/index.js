@@ -17,7 +17,7 @@ const Cart = () => {
     Array.isArray(addToCart) ? addToCart : []
   );
 
-
+  
   const handleRemoveCart = (e, item) => {
     e.stopPropagation();
     setCartItem([...addToCart, cartItem]);
