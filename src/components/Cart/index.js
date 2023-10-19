@@ -8,7 +8,6 @@ import FilledAlerts from "../Common/Toaster/index";
 import Button from "../Common/Button";
 import { NavLink , useNavigate } from "react-router-dom";
 import Checkout from "./Checkout";
-import {useAuth0} from "@auth0/auth0-react"
 
 const Cart = () => {
   const [success, setSuccess] = useState(false);
@@ -19,7 +18,6 @@ const Cart = () => {
   );
 
 
-  const {isAuthenticated , isLoading , loginWithRedirect} = useAuth0();
   const handleRemoveCart = (e, item) => {
     e.stopPropagation();
     setCartItem([...addToCart, cartItem]);
@@ -59,10 +57,7 @@ const Cart = () => {
   );
   
   const checkOut = () =>{
-    if(!isLoading && !isAuthenticated){
-      alert("Redirecting to Login Page")
-      loginWithRedirect();
-    }
+    
     setPlaced(true);
     console.log("Checkout clicked"); 
     setAddToCart([]);

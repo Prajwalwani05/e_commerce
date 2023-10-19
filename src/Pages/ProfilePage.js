@@ -1,40 +1,34 @@
-import React from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Header from "../components/Common/Header";
-import { useAuth0 } from "@auth0/auth0-react";
+import { NavLink,useNavigate } from "react-router-dom";
+import { TokenContext } from "../context/TokenContext";
 
 const ProfilePage = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const { loginWithRedirect } = useAuth0();
-  const { logout } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
-  return (
-    <div>
-      <Header isHeaderBg={true}/>
-      {isAuthenticated ? (
-        <div className="Profile">
-          <img src={user.picture} alt={user.name} />
-          <p>Hello✌️ {user.name}</p>
-          <p>{user.email}</p>
-          <button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
-            Log Out
-          </button>
-        </div>
-      ) : ( 
-        <div className="Profile">
-          <p>Please Login!!</p>
-      <button style={{padding:".5rem 3rem"}} onClick={() => loginWithRedirect()}>Log In</button>
-      </div>
-      )
+  const [name , setName] = useState("")
+  const [email , setEmail] = useState("")
+  const navigate = useNavigate();
+  const token = JSON.parse(localStorage.getItem('token'))
+  useEffect(() =>{
+    if(token){
+      const user = JSON.parse(localStorage.getItem('userData'));
+      setName(user.fName)
+      setEmail(user.email)
     }
+    else{
+      navigate('/signup')
+    }
+  }, [token])
+  
+  return (
+    <>
+      <Header isHeaderBg={true}/>
+    <div  className="profile">
+      <h1>{name}</h1>
+      <h1>{email}</h1>
+     {!token && <NavLink to={'/signup'}>Login</NavLink>}
+      
     </div>
+    </>
   );
 };
 

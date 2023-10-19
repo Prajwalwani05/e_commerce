@@ -3,6 +3,7 @@ import Home from '../components/Home';
 
 
 const HomePage = ({setCat}) => {
+  
   window.scrollTo(0,0)
 
   return (

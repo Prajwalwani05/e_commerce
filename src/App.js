@@ -3,7 +3,6 @@ import {Routes , Route} from "react-router-dom"
 import './App.css';
 import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
-import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 import ProfilePage from './Pages/ProfilePage';
 import ShopPage from './Pages/ShopPage';
@@ -27,10 +26,7 @@ function App() {
      
      
       <Route path='/cart' element={<CartPage />} />
-      {/* <ProtectedRoute path='/cart' element={<CartPage />} /> */}
-     
-      <Route path='/login' element={<LoginPage />} />
-     
+      {/* <ProtectedRoute path='/cart' element={<CartPage />} /> */}     
      
       <Route path='/signup' element={<SignupPage />} />
      
